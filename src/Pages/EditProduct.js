@@ -86,7 +86,7 @@ const EditProduct = ({
             <Row>
                 <Col md={3}></Col>
                 <Col md={6}>
-                    <h1 className="text-center">Add Product</h1>
+                    <h1 className="text-center">Edit Product</h1>
                     <form className="form" onSubmit={(e) => onSubmit(e)}>
                         <div className="mb-3">
                             <Form.Label htmlFor="title">Title*</Form.Label>

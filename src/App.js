@@ -9,6 +9,7 @@ import Alerts from "./Components/Alerts";
 import EditProduct from "./Pages/EditProduct";
 import Header from "./Components/Header";
 import Cart from "./Pages/Cart";
+import ViewProduct from "./Pages/ViewProduct";
 
 function App() {
     return (
@@ -24,6 +25,10 @@ function App() {
                             <Route
                                 Component={EditProduct}
                                 path="/edit-product/:id"
+                            />
+                            <Route
+                                Component={ViewProduct}
+                                path="/product/:id"
                             />
                             <Route Component={Cart} path="/cart" />
                         </Routes>

@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { Button, Col, Row } from "react-bootstrap";
-import { Edit2, Trash2 } from "react-feather";
+import { Edit2, Eye, Trash2 } from "react-feather";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { getAllProducts, deleteProduct } from "../actions/products";
@@ -17,6 +17,10 @@ const Home = ({ getAllProducts, deleteProduct, addToCart, products }) => {
 
     const editSingleProduct = (id) => {
         navigate("/edit-product/" + id);
+    };
+
+    const viewSingleProduct = (id) => {
+        navigate("/product/" + id);
     };
 
     return (
@@ -66,6 +70,13 @@ const Home = ({ getAllProducts, deleteProduct, addToCart, products }) => {
                                     Add to Cart
                                 </Button>
                                 <div className="product-action">
+                                    <span
+                                        onClick={(e) =>
+                                            viewSingleProduct(product.id)
+                                        }
+                                    >
+                                        <Eye className="feather" />
+                                    </span>
                                     <span>
                                         <Edit2
                                             className="feather"
