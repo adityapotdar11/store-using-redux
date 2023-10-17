@@ -15,8 +15,8 @@ const Home = ({ getAllProducts, deleteProduct, addToCart, products }) => {
 
     const navigate = useNavigate();
 
-    const viewSingleProduct = (id) => {
-        navigate("/product/" + id);
+    const editSingleProduct = (id) => {
+        navigate("/edit-product/" + id);
     };
 
     return (
@@ -70,7 +70,7 @@ const Home = ({ getAllProducts, deleteProduct, addToCart, products }) => {
                                         <Edit2
                                             className="feather"
                                             onClick={(e) =>
-                                                viewSingleProduct(product.id)
+                                                editSingleProduct(product.id)
                                             }
                                         />
                                     </span>

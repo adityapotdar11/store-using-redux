@@ -1,12 +1,12 @@
 import React, { useEffect } from "react";
 import PropTypes from "prop-types";
-import { getCart } from "../actions/cart";
+import { getCart, removeFromCart } from "../actions/cart";
 import Ratings from "../Components/Ratings";
 import { Col, Row } from "react-bootstrap";
 import { Trash2 } from "react-feather";
 import { connect } from "react-redux";
 
-const Cart = ({ getCart, cart }) => {
+const Cart = ({ getCart, removeFromCart, cart }) => {
     useEffect(() => {
         getCart();
     }, [getCart]);
@@ -44,7 +44,11 @@ const Cart = ({ getCart, cart }) => {
                                 </h3>
                                 <h5>Qty: {product.qty}</h5>
                                 <div className="product-action">
-                                    <span>
+                                    <span
+                                        onClick={(e) => {
+                                            removeFromCart(product.id);
+                                        }}
+                                    >
                                         <Trash2 className="feather" />
                                     </span>
                                 </div>
@@ -59,6 +63,7 @@ const Cart = ({ getCart, cart }) => {
 
 Cart.propTypes = {
     getCart: PropTypes.func.isRequired,
+    removeFromCart: PropTypes.func.isRequired,
     cart: PropTypes.object.isRequired,
 };
 
@@ -66,4 +71,4 @@ const mapStateToProps = (state) => ({
     cart: state.cart.cart,
 });
 
-export default connect(mapStateToProps, { getCart })(Cart);
+export default connect(mapStateToProps, { getCart, removeFromCart })(Cart);

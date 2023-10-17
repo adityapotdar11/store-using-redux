@@ -1,4 +1,4 @@
-import { ADD_TO_CART, GET_CART } from "./types";
+import { ADD_TO_CART, GET_CART, REMOVE_FROM_CART } from "./types";
 import { v4 as uuidv4 } from "uuid";
 import { setAlert } from "./alerts";
 
@@ -17,4 +17,12 @@ export const getCart = () => (dispatch) => {
     dispatch({
         type: GET_CART,
     });
+};
+
+export const removeFromCart = (id) => (dispatch) => {
+    dispatch({
+        type: REMOVE_FROM_CART,
+        payload: id,
+    });
+    dispatch(setAlert("Product removed from cart", "success"));
 };

@@ -6,7 +6,7 @@ import { connect } from "react-redux";
 import { Col, Row, Form, Button } from "react-bootstrap";
 import { setAlert } from "../actions/alerts";
 
-const Product = ({
+const EditProduct = ({
     setAlert,
     getSingleProduct,
     updateSingleProduct,
@@ -162,7 +162,7 @@ const Product = ({
         </div>
     );
 };
-Product.propType = {
+EditProduct.propType = {
     getSingleProduct: PropTypes.func.isRequired,
     updateSingleProduct: PropTypes.func.isRequired,
     product: PropTypes.object.isRequired,
@@ -176,4 +176,4 @@ export default connect(mapStateToProps, {
     getSingleProduct,
     setAlert,
     updateSingleProduct,
-})(Product);
+})(EditProduct);
