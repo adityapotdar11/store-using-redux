@@ -35,11 +35,13 @@ export default function products(state = initialState, action) {
             };
         case GET_SINGLE_PRODUCT:
             let product = {};
-            let productFake = state.products.map((prod) => {
+            let productFake = [];
+            productFake = state.products.map((prod) => {
+                let temp = Object.assign({}, prod);
                 if (prod.id === payload) {
                     product = prod;
                 }
-                return prod;
+                return temp;
             });
             if (productFake) {
             }

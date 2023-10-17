@@ -15,7 +15,7 @@ const ViewProduct = ({
     const { id } = useParams();
     useEffect(() => {
         getSingleProduct(id);
-    }, [productDetail, getSingleProduct, id]);
+    }, [getSingleProduct, id, productDetail]);
     return (
         <div className="mt-2">
             <Row>
