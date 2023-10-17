@@ -45,7 +45,7 @@ const EditProduct = ({
                     ? ""
                     : productDetail.image,
         });
-    }, [productDetail]);
+    }, [getSingleProduct, productDetail, id, loading]);
 
     const { title, price, ratings, desc, image } = formData;
 
