@@ -10,7 +10,7 @@ const Cart = ({ getCart, removeFromCart, cart }) => {
     useEffect(() => {
         getCart();
     }, [getCart]);
-    console.log(cart);
+
     return (
         <div className="mt-2">
             <Row className="mb-3">
@@ -20,7 +20,7 @@ const Cart = ({ getCart, removeFromCart, cart }) => {
             </Row>
             <Row>
                 {cart.map((product) => (
-                    <Col md={12} className="single-product">
+                    <Col md={12} className="single-product" key={product.id}>
                         <Row>
                             <Col md={3} className="product-img-section">
                                 <img
@@ -45,7 +45,7 @@ const Cart = ({ getCart, removeFromCart, cart }) => {
                                 <h5>Qty: {product.qty}</h5>
                                 <div className="product-action">
                                     <span
-                                        onClick={(e) => {
+                                        onClick={() => {
                                             removeFromCart(product.id);
                                         }}
                                     >

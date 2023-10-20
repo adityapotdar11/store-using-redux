@@ -40,7 +40,7 @@ const ViewProduct = ({
                     <div className="d-grid">
                         <Button
                             variant="warning"
-                            onClick={(e) =>
+                            onClick={() =>
                                 addToCart({
                                     prodId: productDetail.id,
                                     title: productDetail.title,

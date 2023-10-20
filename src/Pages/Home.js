@@ -56,7 +56,7 @@ const Home = ({ getAllProducts, deleteProduct, addToCart, products }) => {
                                 </h3>
                                 <Button
                                     variant="warning"
-                                    onClick={(e) =>
+                                    onClick={() =>
                                         addToCart({
                                             prodId: product.id,
                                             title: product.title,
@@ -71,7 +71,7 @@ const Home = ({ getAllProducts, deleteProduct, addToCart, products }) => {
                                 </Button>
                                 <div className="product-action">
                                     <span
-                                        onClick={(e) =>
+                                        onClick={() =>
                                             viewSingleProduct(product.id)
                                         }
                                     >
@@ -80,14 +80,14 @@ const Home = ({ getAllProducts, deleteProduct, addToCart, products }) => {
                                     <span>
                                         <Edit2
                                             className="feather"
-                                            onClick={(e) =>
+                                            onClick={() =>
                                                 editSingleProduct(product.id)
                                             }
                                         />
                                     </span>
 
                                     <span
-                                        onClick={(e) =>
+                                        onClick={() =>
                                             deleteProduct(product.id)
                                         }
                                     >

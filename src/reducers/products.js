@@ -15,6 +15,9 @@ const initialState = {
 
 export default function products(state = initialState, action) {
     const { type, payload } = action;
+    let product = {};
+    let productFake = [];
+    let products = [];
     switch (type) {
         case ADD_PRODUCT_SUCCESS:
             return {
@@ -34,8 +37,6 @@ export default function products(state = initialState, action) {
                 loading: false,
             };
         case GET_SINGLE_PRODUCT:
-            let product = {};
-            let productFake = [];
             productFake = state.products.map((prod) => {
                 let temp = Object.assign({}, prod);
                 if (prod.id === payload) {
@@ -44,6 +45,7 @@ export default function products(state = initialState, action) {
                 return temp;
             });
             if (productFake) {
+                productFake = [];
             }
             return {
                 ...state,
@@ -51,7 +53,6 @@ export default function products(state = initialState, action) {
                 loading: false,
             };
         case UPDATE_SINGLE_PRODUCT:
-            let products = [];
             products = state.products.map((prod) => {
                 let temp = Object.assign({}, prod);
                 if (prod.id === payload.id) {

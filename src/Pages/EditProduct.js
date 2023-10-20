@@ -93,7 +93,8 @@ const EditProduct = ({
         />
     );
 };
-EditProduct.propType = {
+
+EditProduct.propTypes = {
     getSingleProduct: PropTypes.func.isRequired,
     updateSingleProduct: PropTypes.func.isRequired,
     product: PropTypes.object.isRequired,

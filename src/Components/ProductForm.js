@@ -1,5 +1,6 @@
 import React from "react";
 import { Button, Col, Form, Row } from "react-bootstrap";
+import PropTypes from "prop-types";
 
 const ProductForm = ({
     submitFunc,
@@ -90,6 +91,16 @@ const ProductForm = ({
             </Row>
         </div>
     );
+};
+
+ProductForm.propTypes = {
+    submitFunc: PropTypes.func.isRequired,
+    chnageFunc: PropTypes.func.isRequired,
+    title: PropTypes.string.isRequired,
+    price: PropTypes.number.isRequired,
+    ratings: PropTypes.string.isRequired,
+    desc: PropTypes.string.isRequired,
+    image: PropTypes.string.isRequired,
 };
 
 export default ProductForm;
