@@ -10,12 +10,13 @@ import { addToCart } from "../actions/cart";
 const ViewProduct = ({
     getSingleProduct,
     addToCart,
-    products: { productDetail },
+    products: { productDetail, loading },
 }) => {
     const { id } = useParams();
     useEffect(() => {
         getSingleProduct(id);
     }, [getSingleProduct, id, productDetail]);
+
     return (
         <div className="mt-2">
             <Row>
@@ -23,39 +24,47 @@ const ViewProduct = ({
                     <h2>Product Details</h2>
                 </Col>
             </Row>
-            <Row className="align-center mt-4">
-                <Col md={6} className="single-product-image">
-                    <img src={productDetail.image} alt={productDetail.title} />
-                </Col>
-                <Col md={6}>
-                    <h3>{productDetail.title}</h3>
-                    <hr />
-                    <h5>Description:</h5>
-                    <p>{productDetail.desc}</p>
-                    <h4>Price: ${productDetail.price}</h4>
-                    <p className="product-star">
-                        <Ratings ratings={productDetail.ratings} />{" "}
-                    </p>
-                    <hr />
-                    <div className="d-grid">
-                        <Button
-                            variant="warning"
-                            onClick={() =>
-                                addToCart({
-                                    prodId: productDetail.id,
-                                    title: productDetail.title,
-                                    price: productDetail.price,
-                                    ratings: productDetail.ratings,
-                                    desc: productDetail.desc,
-                                    image: productDetail.image,
-                                })
-                            }
-                        >
-                            Add to Cart
-                        </Button>
-                    </div>
-                </Col>
-            </Row>
+
+            {loading === false && productDetail ? (
+                <Row className="align-center mt-4">
+                    <Col md={6} className="single-product-image">
+                        <img
+                            src={productDetail.image}
+                            alt={productDetail.title}
+                        />
+                    </Col>
+                    <Col md={6}>
+                        <h3>{productDetail.title}</h3>
+                        <hr />
+                        <h5>Description:</h5>
+                        <p>{productDetail.desc}</p>
+                        <h4>Price: ${productDetail.price}</h4>
+                        <p className="product-star">
+                            <Ratings ratings={productDetail.ratings} />{" "}
+                        </p>
+                        <hr />
+                        <div className="d-grid">
+                            <Button
+                                variant="warning"
+                                onClick={() =>
+                                    addToCart({
+                                        prodId: productDetail.id,
+                                        title: productDetail.title,
+                                        price: productDetail.price,
+                                        ratings: productDetail.ratings,
+                                        desc: productDetail.desc,
+                                        image: productDetail.image,
+                                    })
+                                }
+                            >
+                                Add to Cart
+                            </Button>
+                        </div>
+                    </Col>
+                </Row>
+            ) : (
+                <p>Product not found</p>
+            )}
         </div>
     );
 };

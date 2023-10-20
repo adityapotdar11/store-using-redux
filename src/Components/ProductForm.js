@@ -97,7 +97,7 @@ ProductForm.propTypes = {
     submitFunc: PropTypes.func.isRequired,
     chnageFunc: PropTypes.func.isRequired,
     title: PropTypes.string.isRequired,
-    price: PropTypes.number.isRequired,
+    price: PropTypes.string.isRequired,
     ratings: PropTypes.string.isRequired,
     desc: PropTypes.string.isRequired,
     image: PropTypes.string.isRequired,
