@@ -7,6 +7,7 @@ import { getAllProducts, deleteProduct } from "../actions/products";
 import Ratings from "../Components/Ratings";
 import { useNavigate } from "react-router-dom";
 import { addToCart } from "../actions/cart";
+import box from "../assets/images/box.svg";
 
 const Home = ({ getAllProducts, deleteProduct, addToCart, products }) => {
     useEffect(() => {
@@ -27,7 +28,9 @@ const Home = ({ getAllProducts, deleteProduct, addToCart, products }) => {
         <div className="mt-2">
             <Row className="mb-3">
                 <Col>
-                    <h4>Products</h4>
+                    <h4 className="product-heading">
+                        <img src={box} /> Products
+                    </h4>
                 </Col>
             </Row>
             <Row>
