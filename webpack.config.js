@@ -8,6 +8,9 @@ module.exports = {
         filename: "bundle.js",
         path: path.resolve(__dirname, "dist"),
     },
+    resolve: {
+        extensions: [".js", ".json"],
+    },
     module: {
         rules: [
             {
@@ -45,6 +48,11 @@ module.exports = {
                         },
                     },
                 ],
+            },
+            {
+                test: /\.json$/,
+                use: ["webpack-json-access-optimizer"],
+                type: "json",
             },
         ],
     },
