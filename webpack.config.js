@@ -39,7 +39,8 @@ module.exports = {
             },
             {
                 test: /\.svg$/,
-                use: "svg-inline-loader",
+                type: "asset/resource",
+                use: ["svg-url-loader"],
             },
             {
                 test: /\.json$/,
