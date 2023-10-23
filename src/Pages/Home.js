@@ -7,7 +7,7 @@ import { getAllProducts, deleteProduct } from "../actions/products";
 import Ratings from "../Components/Ratings";
 import { useNavigate } from "react-router-dom";
 import { addToCart } from "../actions/cart";
-import { ReactComponent as Box } from "../assets/images/box.svg";
+import box from "../assets/images/box.svg";
 
 const Home = ({ getAllProducts, deleteProduct, addToCart, products }) => {
     useEffect(() => {
@@ -29,7 +29,7 @@ const Home = ({ getAllProducts, deleteProduct, addToCart, products }) => {
             <Row className="mb-3">
                 <Col>
                     <h4 className="product-heading">
-                        <Box /> Products
+                        <img src={box} /> Products
                     </h4>
                 </Col>
             </Row>
