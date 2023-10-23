@@ -42,7 +42,7 @@ module.exports = {
                 type: "asset/resource",
                 use: [
                     {
-                        loader: "svg-url-loader",
+                        loader: ["svg-url-loader", "url-loader"],
                         options: {
                             limit: 10000,
                         },
